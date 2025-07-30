@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - CampusConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Login Screen -->
+    <div id="login-screen" class="admin-login">
+        <div class="login-card">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Admin Login</h2>
+                <p class="text-gray-600">Access the CampusConnect Admin Panel</p>
+            </div>
+            <form id="login-form" class="space-y-6">
+                <div class="form-group">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="form-button">
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    Sign In
+                </button>
+            </form>
+            <div class="text-center mt-4">
+                <p class="text-sm text-gray-600">
+                    Demo Credentials: admin / admin123
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-panel" class="hidden">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg fixed w-full z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <a href="index.html" class="text-2xl font-bold text-blue-600">CampusConnect</a>
+                        <span class="ml-4 text-gray-500">Admin Panel</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-700">Welcome, Administrator</span>
+                        <button id="dark-mode-toggle" class="dark-mode-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button id="logout-btn" class="text-gray-600 hover:text-blue-600" onclick="handleLogout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Header -->
+        <div class="dashboard-header pt-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                    <div>
+                        <h1 class="text-3xl font-bold">Admin Dashboard</h1>
+                        <p class="text-blue-100 mt-2">Manage students, results, and campus services</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 flex space-x-2">
+                        <button id="export-data" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-all duration-200">
+                            <i class="fas fa-download mr-2"></i>Export Data
+                        </button>
+                        <button id="backup-system" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-all duration-200">
+                            <i class="fas fa-database mr-2"></i>Backup
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Total Students</h3>
+                        <div class="dashboard-card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-blue-600">5,247</div>
+                    <p class="text-green-600 text-sm mt-2">
+                        <i class="fas fa-arrow-up mr-1"></i>+12 this month
+                    </p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Active Courses</h3>
+                        <div class="dashboard-card-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-green-600">156</div>
+                    <p class="text-gray-600 text-sm mt-2">Across all departments</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Pending Orders</h3>
+                        <div class="dashboard-card-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-orange-600">23</div>
+                    <p class="text-gray-600 text-sm mt-2">Canteen orders</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">System Status</h3>
+                        <div class="dashboard-card-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl font-bold text-green-600">Online</div>
+                    <p class="text-gray-600 text-sm mt-2">99.9% uptime</p>
+                </div>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="border-b border-gray-200">
+                    <nav class="flex space-x-8 px-6" aria-label="Tabs">
+                        <button class="tab-button active" data-tab="results">
+                            <i class="fas fa-chart-bar mr-2"></i>
+                            Results Management
+                        </button>
+                        <button class="tab-button" data-tab="attendance">
+                            <i class="fas fa-clock mr-2"></i>
+                            Attendance Entry
+                        </button>
+                        <button class="tab-button" data-tab="canteen">
+                            <i class="fas fa-utensils mr-2"></i>
+                            Canteen Menu
+                        </button>
+                        <button class="tab-button" data-tab="orders">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+                            Order Management
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="p-6">
+                    <!-- Results Management Tab -->
+                    <div id="results-tab" class="tab-content" style="display: block;">
+                        <div id="results-content">
+                            <!-- Results content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Attendance Entry Tab -->
+                    <div id="attendance-tab" class="tab-content" style="display: none;">
+                        <div id="attendance-content">
+                            <!-- Attendance content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Canteen Menu Tab -->
+                    <div id="canteen-tab" class="tab-content" style="display: none;">
+                        <div id="canteen-content">
+                            <!-- Canteen content will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Order Management Tab -->
+                    <div id="orders-tab" class="tab-content" style="display: none;">
+                        <div id="orders-content">
+                            <!-- Orders content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Menu Item Modal -->
+    <div id="menu-modal" class="modal hidden">
+        <div class="modal-content max-w-2xl">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Menu Item</h3>
+                <button class="modal-close" onclick="closeModal('menu-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="menu-modal-content">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html> 

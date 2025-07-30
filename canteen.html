@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen - CampusConnect</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">CampusConnect</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-700">Welcome</span>
+                    <button id="dark-mode-toggle" class="dark-mode-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="dashboard.html" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="ml-1">Dashboard</span>
+                    </a>
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Canteen Header -->
+    <div class="dashboard-header pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                    <h1 class="text-3xl font-bold">Campus Canteen</h1>
+                    <p class="text-blue-100 mt-2">Order delicious food and track your orders</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex space-x-2">
+                    <button id="view-orders" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-all duration-200">
+                        <i class="fas fa-list mr-2"></i>My Orders
+                    </button>
+                    <button id="view-cart" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-4 py-2 rounded-lg transition-all duration-200">
+                        <i class="fas fa-shopping-cart mr-2"></i>Cart (<span id="cart-count">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">Total Orders</h3>
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-blue-600">24</div>
+                <p class="text-green-600 text-sm mt-2">
+                    <i class="fas fa-arrow-up mr-1"></i>+5 this month
+                </p>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">Pending Orders</h3>
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-orange-600">2</div>
+                <p class="text-gray-600 text-sm mt-2">Orders being prepared</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">Total Spent</h3>
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-green-600">₹15,000</div>
+                <p class="text-gray-600 text-sm mt-2">This semester</p>
+            </div>
+            
+            <div class="dashboard-card">
+                <div class="dashboard-card-header">
+                    <h3 class="dashboard-card-title">Favorite Item</h3>
+                    <div class="dashboard-card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+                <div class="text-lg font-bold text-purple-600">Veg Biryani</div>
+                <p class="text-gray-600 text-sm mt-2">Ordered 8 times</p>
+            </div>
+        </div>
+
+        <!-- Menu and Cart Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Menu Section -->
+            <div class="lg:col-span-2">
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Today's Menu</h3>
+                        <div class="flex space-x-2">
+                            <button id="filter-all" class="text-sm bg-blue-100 text-blue-600 px-3 py-1 rounded-full">All</button>
+                            <button id="filter-main" class="text-sm text-gray-600 px-3 py-1 rounded-full hover:bg-gray-100">Main Course</button>
+                            <button id="filter-snacks" class="text-sm text-gray-600 px-3 py-1 rounded-full hover:bg-gray-100">Snacks</button>
+                            <button id="filter-beverages" class="text-sm text-gray-600 px-3 py-1 rounded-full hover:bg-gray-100">Beverages</button>
+                        </div>
+                    </div>
+                    <div id="menu-categories" class="space-y-6">
+                        <!-- Menu categories will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="space-y-8">
+                <!-- Shopping Cart -->
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Your Cart</h3>
+                        <button id="clear-cart" class="text-red-600 hover:text-red-700 text-sm font-medium">
+                            Clear All
+                        </button>
+                    </div>
+                    <div id="cart-items" class="space-y-3 mb-4">
+                        <!-- Cart items will be populated by JavaScript -->
+                    </div>
+                    <div class="border-t pt-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-semibold text-gray-700">Subtotal:</span>
+                            <span id="cart-subtotal" class="font-bold text-lg">$0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-semibold text-gray-700">Tax (5%):</span>
+                            <span id="cart-tax" class="font-bold text-lg">$0.00</span>
+                        </div>
+                        <div class="flex justify-between items-center mb-4 border-t pt-2">
+                            <span class="font-semibold text-gray-900">Total:</span>
+                            <span id="cart-total" class="font-bold text-xl text-blue-600">$0.00</span>
+                        </div>
+                        <div class="space-y-3">
+                            <select id="time-slot" class="w-full form-input">
+                                <option value="">Select Pickup Time</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="13:30">1:30 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="14:30">2:30 PM</option>
+                            </select>
+                            <button id="place-order" class="w-full btn-primary">
+                                <i class="fas fa-shopping-cart mr-2"></i>Place Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders -->
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Recent Orders</h3>
+                        <button id="view-all-orders" class="text-blue-600 hover:text-blue-700 text-sm font-medium">
+                            View All <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                    <div id="recent-orders" class="space-y-3">
+                        <!-- Recent orders will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <h3 class="dashboard-card-title">Quick Actions</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <i class="fas fa-history text-blue-600 mr-3"></i>
+                            Order History
+                        </button>
+                        <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <i class="fas fa-star text-yellow-600 mr-3"></i>
+                            Rate Previous Orders
+                        </button>
+                        <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <i class="fas fa-bell text-orange-600 mr-3"></i>
+                            Order Notifications
+                        </button>
+                        <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <i class="fas fa-question-circle text-gray-600 mr-3"></i>
+                            Help & Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Status Modal -->
+    <div id="order-status-modal" class="modal hidden">
+        <div class="modal-content max-w-2xl">
+            <div class="modal-header">
+                <h3 class="modal-title">Order Status</h3>
+                <button class="modal-close" onclick="closeModal('order-status-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="order-status-content">
+                <!-- Order status will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Order History Modal -->
+    <div id="order-history-modal" class="modal hidden">
+        <div class="modal-content max-w-4xl">
+            <div class="modal-header">
+                <h3 class="modal-title">Order History</h3>
+                <button class="modal-close" onclick="closeModal('order-history-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="order-history-content">
+                <!-- Order history will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/canteen.js"></script>
+</body>
+</html> 

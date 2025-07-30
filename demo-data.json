@@ -1,0 +1,243 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "name": "John Doe",
+      "email": "john.doe@campus.edu",
+      "class": "CS 3A",
+      "department": "Computer Science",
+      "enrollmentYear": 2022,
+      "cgpa": 3.85,
+      "attendance": 92
+    },
+    {
+      "id": "STU002",
+      "name": "Jane Smith",
+      "email": "jane.smith@campus.edu",
+      "class": "CS 3A",
+      "department": "Computer Science",
+      "enrollmentYear": 2022,
+      "cgpa": 3.92,
+      "attendance": 95
+    },
+    {
+      "id": "STU003",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@campus.edu",
+      "class": "CS 3B",
+      "department": "Computer Science",
+      "enrollmentYear": 2022,
+      "cgpa": 3.78,
+      "attendance": 88
+    }
+  ],
+  "courses": [
+    {
+      "id": "CS301",
+      "name": "Data Structures and Algorithms",
+      "department": "Computer Science",
+      "credits": 4,
+      "instructor": "Dr. Sarah Wilson",
+      "semester": "Fall 2024"
+    },
+    {
+      "id": "CS302",
+      "name": "Database Management Systems",
+      "department": "Computer Science",
+      "credits": 3,
+      "instructor": "Dr. David Brown",
+      "semester": "Fall 2024"
+    },
+    {
+      "id": "MATH201",
+      "name": "Calculus III",
+      "department": "Mathematics",
+      "credits": 4,
+      "instructor": "Dr. Emily Davis",
+      "semester": "Fall 2024"
+    }
+  ],
+  "results": [
+    {
+      "studentId": "STU001",
+      "courseId": "CS301",
+      "grade": "A",
+      "gpa": 4.0,
+      "semester": "Fall 2024"
+    },
+    {
+      "studentId": "STU001",
+      "courseId": "CS302",
+      "grade": "A-",
+      "gpa": 3.7,
+      "semester": "Fall 2024"
+    },
+    {
+      "studentId": "STU002",
+      "courseId": "CS301",
+      "grade": "A",
+      "gpa": 4.0,
+      "semester": "Fall 2024"
+    }
+  ],
+  "attendance": [
+    {
+      "studentId": "STU001",
+      "courseId": "CS301",
+      "date": "2024-09-15",
+      "status": "present"
+    },
+    {
+      "studentId": "STU001",
+      "courseId": "CS301",
+      "date": "2024-09-17",
+      "status": "present"
+    },
+    {
+      "studentId": "STU002",
+      "courseId": "CS301",
+      "date": "2024-09-15",
+      "status": "present"
+    }
+  ],
+  "menuItems": [
+    {
+      "id": 1,
+      "name": "Chicken Biryani",
+      "category": "Main Course",
+      "description": "Fragrant rice with tender chicken",
+      "price": 120.00,
+      "availability": "available",
+      "image": "biryani.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Veg Biryani",
+      "category": "Main Course",
+      "description": "Fragrant rice with mixed vegetables",
+      "price": 80.00,
+      "availability": "available",
+      "image": "pulao.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Samosa",
+      "category": "Snacks",
+      "description": "Crispy pastry with potato filling",
+      "price": 20.00,
+      "availability": "available",
+      "image": "samosa.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Paneer Pakora",
+      "category": "Snacks",
+      "description": "Cottage cheese fritters",
+      "price": 40.00,
+      "availability": "available",
+      "image": "pakora.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Masala Chai",
+      "category": "Beverages",
+      "description": "Spiced Indian tea",
+      "price": 15.00,
+      "availability": "available",
+      "image": "chai.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD001",
+      "studentId": "STU001",
+      "items": [
+        {
+          "menuItemId": 1,
+          "quantity": 1,
+          "price": 8.99
+        },
+        {
+          "menuItemId": 7,
+          "quantity": 1,
+          "price": 1.99
+        }
+      ],
+      "total": 10.98,
+      "timeSlot": "12:30 PM",
+      "status": "preparing",
+      "orderDate": "2024-09-20",
+      "estimatedReady": "2024-09-20T12:45:00Z"
+    },
+    {
+      "id": "ORD002",
+      "studentId": "STU002",
+      "items": [
+        {
+          "menuItemId": 2,
+          "quantity": 1,
+          "price": 6.99
+        },
+        {
+          "menuItemId": 3,
+          "quantity": 1,
+          "price": 2.99
+        }
+      ],
+      "total": 9.98,
+      "timeSlot": "1:00 PM",
+      "status": "ready",
+      "orderDate": "2024-09-20",
+      "estimatedReady": "2024-09-20T13:15:00Z"
+    }
+  ],
+  "departments": [
+    {
+      "id": "CS",
+      "name": "Computer Science",
+      "head": "Dr. Robert Johnson",
+      "totalStudents": 245,
+      "totalCourses": 18
+    },
+    {
+      "id": "MATH",
+      "name": "Mathematics",
+      "head": "Dr. Emily Davis",
+      "totalStudents": 156,
+      "totalCourses": 12
+    },
+    {
+      "id": "PHYSICS",
+      "name": "Physics",
+      "head": "Dr. Michael Chen",
+      "totalStudents": 89,
+      "totalCourses": 8
+    }
+  ],
+  "systemStats": {
+    "totalStudents": 5247,
+    "totalFaculty": 156,
+    "totalCourses": 234,
+    "activeOrders": 23,
+    "systemUptime": "99.9%",
+    "lastBackup": "2024-09-20T06:00:00Z"
+  },
+  "notifications": [
+    {
+      "id": "NOT001",
+      "type": "info",
+      "title": "System Maintenance",
+      "message": "Scheduled maintenance on Sunday, 2:00 AM - 4:00 AM",
+      "date": "2024-09-20",
+      "read": false
+    },
+    {
+      "id": "NOT002",
+      "type": "success",
+      "title": "Results Published",
+      "message": "Fall 2024 semester results have been published",
+      "date": "2024-09-19",
+      "read": true
+    }
+  ]
+} 

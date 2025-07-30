@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusConnect - Your Digital Campus Experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="font-inter">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-blue-600">CampusConnect</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#features" class="nav-link">Features</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="dashboard.html" class="nav-link">Dashboard</a>
+                        <a href="canteen.html" class="nav-link">Canteen</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="mobile-nav-link">Home</a>
+                <a href="#features" class="mobile-nav-link">Features</a>
+                <a href="#about" class="mobile-nav-link">About</a>
+                <a href="#contact" class="mobile-nav-link">Contact</a>
+                <a href="dashboard.html" class="mobile-nav-link">Dashboard</a>
+                <a href="canteen.html" class="mobile-nav-link">Canteen</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <div class="text-center">
+                <h1 class="hero-title">
+                    Welcome to <span class="text-blue-600">CampusConnect</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Your comprehensive digital platform for seamless campus management, 
+                    student services, and administrative excellence.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="dashboard.html" class="btn-primary">
+                        <i class="fas fa-user-graduate mr-2"></i>
+                        Student Dashboard
+                    </a>
+                    <a href="canteen.html" class="btn-secondary">
+                        <i class="fas fa-utensils mr-2"></i>
+                        Order Food
+                    </a>
+                    <a href="admin.html" class="btn-secondary">
+                        <i class="fas fa-user-shield mr-2"></i>
+                        Admin Panel
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Why Choose CampusConnect?</h2>
+                <p class="section-subtitle">
+                    Experience the future of campus management with our comprehensive features
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Academic Excellence</h3>
+                    <p class="feature-description">
+                        Track your academic progress with detailed grade reports, CGPA analysis, 
+                        and comprehensive performance insights.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Attendance Management</h3>
+                    <p class="feature-description">
+                        Monitor attendance across all subjects with visual progress indicators 
+                        and detailed attendance reports.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="feature-title">Canteen Services</h3>
+                    <p class="feature-description">
+                        Order delicious meals from the campus canteen with real-time order 
+                        tracking and convenient payment options.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="feature-title">Performance Analytics</h3>
+                    <p class="feature-description">
+                        Visualize your academic journey with interactive charts and 
+                        comprehensive performance analytics.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Mobile Responsive</h3>
+                    <p class="feature-description">
+                        Access all features seamlessly across devices with our 
+                        fully responsive design.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Secure & Reliable</h3>
+                    <p class="feature-description">
+                        Your data is protected with enterprise-grade security 
+                        and reliable infrastructure.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="section-title text-left">About CampusConnect</h2>
+                    <p class="text-gray-600 mb-6">
+                        CampusConnect is a comprehensive digital platform designed to streamline 
+                        campus operations and enhance the student experience. Our platform bridges 
+                        the gap between students, faculty, and administration through innovative 
+                        technology solutions.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Real-time academic tracking and reporting</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Integrated canteen management system</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Comprehensive attendance monitoring</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                            <span>Advanced analytics and insights</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">5000+</div>
+                            <div class="stat-label">Active Students</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Courses</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Faculty Members</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">99.9%</div>
+                            <div class="stat-label">Uptime</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Have questions? We'd love to hear from you.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-info">info@campusconnect.edu</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3 class="contact-title">Phone</h3>
+                    <p class="contact-info">+1 (555) 123-4567</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="contact-title">Address</h3>
+                    <p class="contact-info">123 Campus Drive, University City, UC 12345</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">CampusConnect</h3>
+                    <p class="text-gray-400">
+                        Empowering education through innovative technology solutions.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="dashboard.html" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="canteen.html" class="hover:text-white transition-colors">Canteen Services</a></li>
+                        <li><a href="admin.html" class="hover:text-white transition-colors">Admin Panel</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Reports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 CampusConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
